@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react'
-import { getData, getError } from '../../features/Movie/MovieSlice'
+import React, { useEffect, useState } from 'react'
+import { getDatas, getError } from '../../features/Movie/MovieSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from '../../api/axios'
+
+
+
+const baseURL = 'https://api.themoviedb.org/3';
 const MovieRow = ({title, fetchURL, isLargeRow}) => {
     const {datas, isLoading, error} = useSelector((state) => state.MovieSlice)
+ 
     // console.log(datas)
     const dispatch = useDispatch()
     // useEffect is a react functiin we use to call an api or trigger an event or functions
@@ -17,32 +22,40 @@ const MovieRow = ({title, fetchURL, isLargeRow}) => {
         try{
           const request = await axios.get(fetchURL)
             // console.log(request)
-            dispatch(getData(request.data.results))
+            dispatch(getDatas(request.data.results))
         }catch(error){
-          
+          console.log(error)
         }
         
       }
       fetchData()
-    },[fetchURL])
-    if(isLoading === true){
-      return (
-        <div>
-          <p>hello</p>
-        </div>
-      )
-    }
+    },[fetchURL, dispatch])
+
+    //   const opts = {
+    //   height: '390',
+    //   width: '100%',
+    //   playerVars: {
+    //     // https://developers.google.com/youtube/player_parameters,
+    //     autoplay: 1,
+    //   },
+    // };
+    
+
   return (
     <div className='row'>
        <h1>{title}</h1>
        <div className='row_posters'>
           {datas.map((data) => (
             <div  className={`row_poster ${isLargeRow && 'row_posterLarge'}`} key={data.id}>
-              <img src={`https://image.tmdb.org/t/p/w300/${isLargeRow ? data.poster_path : data.backdrop_path}`} alt={data.title} />
+              <img 
+              // onClick={hnadleClick}/
+              src={`https://image.tmdb.org/t/p/w300/${isLargeRow ? data.poster_path : data.backdrop_path}`} 
+              alt={data.title} />
               {/* <p>{data.title}</p> */}
             </div>
           ))}
        </div>
+      
     </div>
   )
 }

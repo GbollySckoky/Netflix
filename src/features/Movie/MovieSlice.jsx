@@ -1,20 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  datas:[],
-  isLoading: true,
+  datas:[], // get  multiple datas
+  isFetching: true,
   error: null,
+  data:{} // get data a single data
 }
 
 export const MovieSlice = createSlice({
   name: 'movie',
   initialState,
   reducers: {
-    getData (state, action) {
+    getDatas (state, action) {
         return {
             ...state,
             datas: action.payload,
-            isLoading: false,
+            isFetching: false,
             error:null
         }
     },
@@ -24,11 +25,18 @@ export const MovieSlice = createSlice({
             error:action.payload,
             isLoading: false
         }
+    },
+    getData (state, action) {
+        return {
+            ...state,
+            data:action.payload,
+            isLoading: false
+        }
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { getData, getError } =  MovieSlice.actions
+export const { getDatas, getError,getData } =  MovieSlice.actions
 
 export default MovieSlice.reducer
