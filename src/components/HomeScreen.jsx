@@ -11,10 +11,10 @@ const HomeScreen = () => {
         <MovieRow title="NETFLIX ORIGINALS" fetchURL={request.fetchNetflixOriginals} isLargeRow/>
         <MovieRow title="Trending Now" fetchURL={request.fetchTrending}/>
         <MovieRow title="Action Movies" fetchURL={request.fetchActionMovies} />
-        <MovieRow title="Comedy Movies" fetchURL={request.fetchComedyMovies}/>
+        <MovieRow title="Animated Series" fetchURL={request.fetchAnimatedMovies}/>
+        <MovieRow title="Documentry Movies" fetchURL={request.fetchDocumentry}/>
         <MovieRow title="Top Rated" fetchURL={request.fetchTopRated}/>
         <MovieRow title="Romance Movies" fetchURL={request.fetchRomance}/>
-        <MovieRow title="Comedy Movies" fetchURL={request.fetchComedyMovies}/>
         <MovieRow title="Horror Movies" fetchURL={request.fetchHorrorMovies}/>
     </div>
   )

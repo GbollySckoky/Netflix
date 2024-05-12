@@ -28,7 +28,7 @@ const Banner = () => {
             style={{
                 backgroundImage: `url(https://image.tmdb.org/t/p/original/${data?.backdrop_path})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundPosition: 'center center',
                 width: '100%'
             }}
         >
