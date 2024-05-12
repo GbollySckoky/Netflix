@@ -3,7 +3,6 @@ import axios from '../../api/axios'
 
 const MovieRow = ({title, fetchURL, isLargeRow}) => {
     const [movies, setMovies] = useState([])
-    const  [trailerUrl, setTrailerUrl] = useState('')
     // console.log(datas)
     // useEffect is a react functiin we use to call an api or trigger an event or functions
     useEffect(() => {

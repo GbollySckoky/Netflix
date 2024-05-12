@@ -1,8 +1,8 @@
 import React from 'react'
-import Nav from './Nav/Nav'
-import Banner from './Banner/Banner'
-import MovieRow from './MovieRow/MovieRow'
-import request from '../api/request'
+import Nav from './Nav'
+import Banner from './Banner'
+import MovieRow from './MovieRow'
+import request from '../../api/request'
 const HomeScreen = () => {
   return (
     <div>

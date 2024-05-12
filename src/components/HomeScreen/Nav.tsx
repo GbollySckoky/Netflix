@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import logo from '../../assets/logo.png';
 
 const Nav = () => {
   const [show, setShow] = useState(false)
@@ -25,7 +25,7 @@ const Nav = () => {
         <div>
           <img 
               className='nav_logo'
-              src="https://variety.com/wp-content/uploads/2020/05/netflix-logo.png?w=1024"
+              src={logo}
               alt="Netflix Logo"
           />
         </div>
