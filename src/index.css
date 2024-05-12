@@ -118,3 +118,137 @@ max-height: 500px;
     object-fit: contain;
     cursor: pointer;
   }
+  .nav_avatar{
+    width: 30px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  .error_tab{
+    display: grid;
+    place-items: cen;
+  }
+  .login_img{
+    width: 130px;
+    object-fit: contain;
+    cursor: pointer;
+    padding-left: 20px;
+    position: fixed;
+    left: 0;
+    top: 20px;
+  }
+  .login{
+    position: relative;
+    height: 100%;
+    background: url('https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg') center no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  .login_btn{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #e50914;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+  }
+  .loginScreen_gradient{
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0,
+      rgba(0, 0, 0, 0)60%,
+      rgba(0, 0, 0, 0.8)100%
+    );
+  }
+  .login_body{
+    z-index: 1;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 50%;
+  }
+  .login_body > h1{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .login_body > h2{
+    font-size: 1.12rem;
+    margin-bottom: 50px;
+    position: absolute;
+    font-weight: 400;
+    width: 100%;
+  }
+  .login_body > h3{
+    font-size: 1.1rem;
+    margin-top: 57px;
+    font-weight: 400;
+  }
+  .input > form > input{
+    outline: none;
+    padding: 10px;
+    /* height: 30px; */
+    width: 30%;
+    border: none;
+    max-width: 600px;
+  }
+  .login_get{
+    background-color: #e50914;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .input{
+    margin: 30px;
+  }
+  .signIn{
+    max-width: 500px;
+    padding: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+    /* background-color: white; */
+  }
+  form > h1{
+    /* color: black; */
+    margin-bottom: 15px;
+  }
+  .signIn > form > div > input{
+    outline: none;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  #signIn_btn{
+    width: 100%;
+    background:#e50914;
+    border: none;
+    padding: 10px 0;
+    color: white;
+    cursor: pointer;
+  }
+  .grey{
+    color: gray;
+  }
+  .gid{
+    margin-top: 15px;
+  }
+  .signIn_link{
+    cursor: pointer;
+  }
