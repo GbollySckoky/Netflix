@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getData } from '../../features/Movie/MovieSlice';
+import { getData } from '../../features/GetData/getDataSlice';
 import axios from '../../api/axios';
 import request from '../../api/request';
 
 const Banner = () => {
-    const { data } = useSelector((state) => state.MovieSlice);
+    const { data } = useSelector((state) => state.getDataSlice)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const Banner = () => {
             }}
         >
             <div className='banner_content'>
-                <h1 className='banner_title'>{data?.title}</h1>
+                <h1 className='banner_title'>{data?.title  || data?.name}</h1>
                 <div className='banner_buttons'>
                     <button type='button' className='banner_button'>Play</button>
                     <button type='button' className='banner_button'>My List</button>
