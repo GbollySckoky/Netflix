@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const [show, setShow] = useState(false)
+  const navigate = useNavigate()
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -27,6 +29,7 @@ const Nav = () => {
               className='nav_logo'
               src={logo}
               alt="Netflix Logo"
+              onClick={() => navigate('/')}
           />
         </div>
        <div>
@@ -34,6 +37,7 @@ const Nav = () => {
             className='nav_avatar'
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" 
             alt="Netflix Avatar" 
+            onClick={() => navigate('/profile')}
           />
        </div>
       

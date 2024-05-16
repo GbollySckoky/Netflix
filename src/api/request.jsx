@@ -1,5 +1,5 @@
-const API_KEY = 'b2a94a788bb4a0469f5295f047a3fa3b'
-
+// const API_KEY = 'b2a94a788bb4a0469f5295f047a3fa3b'
+import API_KEY from "../config";
 const request = {
     // fetchAll:`/discover/movie?api_key=${API_KEY}&language=en-US`,
     fetchTrending:  `/trending/all/week?api_key=${API_KEY}&language=en-US`,
