@@ -3,8 +3,8 @@ import axios from '../../api/axios';
 import API_KEY from '../../config';
 const MovieRow = ({ title, fetchURL, isLargeRow }) => {
     const [movies, setMovies] = useState([]);
-    const [trailerUrl, setTrailerUrl] = useState(false);
-    const [noTrailer, setNoTrailer] = useState(false);
+    const [trailerUrl, setTrailerUrl] = useState('');
+    const [noTrailer, setNoTrailer] = useState('');
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,14 +24,23 @@ const MovieRow = ({ title, fetchURL, isLargeRow }) => {
             if (videos.length > 0) {
                 const trailerKey = videos[0].key; // Assuming the first video is the trailer
                 setTrailerUrl(`https://www.youtube.com/embed/${trailerKey}`);
+                setNoTrailer(false);
             } else {
                 // Handle case when no trailers are available
                 setNoTrailer("Couldn't fetch the movie trailer for this data");
+                // setTrailerUrl(false)
+                setTrailerUrl('');
+                // handleClose(); 
             }
         } catch (error) {
             console.log(error);
         }
     };
+
+    const handleClose = () => {
+        setTrailerUrl('')
+        // setNoTrailer('')
+    }
 
     return (
         <div className='row'>
@@ -40,7 +49,13 @@ const MovieRow = ({ title, fetchURL, isLargeRow }) => {
                 {movies?.map((movie) => (
                     <div className={`row_poster ${isLargeRow && 'row_posterLarge'}`} key={movie.id}>
                         <img
-                            onClick={() => handleClick(movie.id)}
+                           onClick={() => {
+                            if (trailerUrl) {
+                                handleClose();
+                            } else {
+                                handleClick(movie.id);
+                            }
+                            }}
                             src={`https://image.tmdb.org/t/p/w300/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                             alt={movie.title}
                         />
@@ -49,14 +64,17 @@ const MovieRow = ({ title, fetchURL, isLargeRow }) => {
                 ))}
             </div>
             {trailerUrl && (
-                <iframe
-                    title="movie-trailer"
-                    width="100%"
-                    height="315"
-                    src={trailerUrl}
-                    frameBorder="0"
-                    allowFullScreen
-                ></iframe>
+                <div className="trailer_container">
+                     <iframe
+                        title="movie-trailer"
+                        width="100%"
+                        height="315"
+                        src={trailerUrl}
+                        frameBorder="0"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+               
             )}
             {noTrailer && <p className='noTrailer'>{noTrailer}</p>}
         </div>

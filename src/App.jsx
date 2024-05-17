@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import HomeScreen from './components/HomeScreen/HomeScreen'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './components/SignUp/Login'
 import { auth } from './firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, logout, selectUser } from './features/User/UserSlice'
-import Profile from './components/Profile/Profile'
+// import Profile from './pages/Profile/Profile'
+import HomePage from './pages/Home/HomePage'
+import Settings from './pages/Settings/Settings'
+import Security from './pages/Security/Security'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -38,11 +39,11 @@ const App = () => {
       <BrowserRouter >
         <Routes>
           {!user ? (
-            <Route path='' element={<Login />} />
+            <Route path='' element={<Security />} />
           ) : (
             <>
-              <Route path="/" element={<HomeScreen />} />
-              <Route path='/profile' element={<Profile user={user} />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path='/profile' element={<Settings user={user} />} />
             </>
           )}
         </Routes>
