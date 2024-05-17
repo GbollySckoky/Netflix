@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from '../HomeScreen/Nav';
 import Avatar from '@mui/material/Avatar';
 import Footer from '../Footer/Footer';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import david from '../../assets/david.jpg'
+import Modal from './Modal';
 const Profile = ({user}) => {
-
+const [showModal, setShowModal] = useState(false)
+const handleShowModal = () => {
+  setShowModal(!showModal)
+}
   return (
     <div className='profis'>
       <div className='profile'>
@@ -13,11 +17,9 @@ const Profile = ({user}) => {
         <div className='profile_body'>
           <h1>Edit Profile</h1>
           <div  className='profile_info'>
-          <Avatar alt="Remy Sharp" src={david} />
             <div className='profile_details'>
-              <h2>{user.email}</h2>
-              <div className="profile_plans">
-              </div>
+                <Avatar alt="Remy Sharp" src={david} />
+                <h2>{user.email}</h2>
             </div>
           </div>
           <div className="">
@@ -38,8 +40,9 @@ const Profile = ({user}) => {
               <span> <MdKeyboardArrowRight /> </span>
             </div>
           </div>
-          <div className='prof_btn'>
-            <button>Sign Out</button>
+          <div >
+            <button onClick={handleShowModal} className='prof_btn' >Sign Out</button>
+            {showModal && <Modal  handleShowModal={handleShowModal} />}
           </div>
         </div>
         </div>
