@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import MovieSlice from '../features/Movie/MovieSlice'
-
+import UserSlice from '../features/User/UserSlice'
+import getDataSlice from '../features/GetData/getDataSlice'
 export const store = configureStore({
   reducer: {
-   MovieSlice: MovieSlice
+   UserSlice: UserSlice,
+   getDataSlice: getDataSlice
   },
 })
